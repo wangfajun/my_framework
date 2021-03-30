@@ -1,0 +1,1 @@
+org.springframework.boot.env.EnvironmentPostProcessor=com.wangfajun.framework.config.env.ZdEnvironmentPostProcessor
