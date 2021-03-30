@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.wangfajun.framework.constant.CommonConstants;
 import com.wangfajun.framework.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.exception.FrameworkErrorException;
-import com.wangfajun.framework.model.entity.UserInfo;
+import com.wangfajun.framework.model.entity.Demo;
 import com.wangfajun.framework.model.res.JwtUserInfoRes;
 import com.wangfajun.framework.utils.encrypt.Sm4utils;
 import io.jsonwebtoken.*;
@@ -19,6 +19,8 @@ import java.util.Date;
  * 用户登录Jwt令牌工具类
  *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 public class JwtTokenUtil {
 
@@ -38,6 +40,7 @@ public class JwtTokenUtil {
 
 	/**
 	 * 解析jwt
+	 *
 	 * @param jsonWebToken
 	 * @param base64Security
 	 */
@@ -58,9 +61,10 @@ public class JwtTokenUtil {
 
 	/**
 	 * 构建jwt
+	 *
 	 * @param userInfo 员工信息
 	 */
-	public static String createJwt(UserInfo userInfo) {
+	public static String createJwt(Demo userInfo) {
 		try {
 			// 使用HS256加密算法
 			SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -149,6 +153,7 @@ public class JwtTokenUtil {
 
 	/**
 	 * 解密
+	 *
 	 * @param claims
 	 */
 	private static JwtUserInfoRes getJwtMemberResDto(Claims claims) {

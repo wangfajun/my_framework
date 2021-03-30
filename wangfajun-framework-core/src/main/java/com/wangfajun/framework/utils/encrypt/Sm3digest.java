@@ -2,9 +2,10 @@ package com.wangfajun.framework.utils.encrypt;
 
 /**
  * 国密SM3
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm3digest {
 
@@ -51,6 +52,7 @@ public class Sm3digest {
 
 	/**
 	 * SM3结果输出
+	 *
 	 * @param out    保存SM3结构的缓冲区
 	 * @param outOff 缓冲区偏移量
 	 * @return
@@ -69,6 +71,7 @@ public class Sm3digest {
 
 	/**
 	 * 明文输入
+	 *
 	 * @param in    明文输入缓冲区
 	 * @param inOff 缓冲区偏移量
 	 * @param len   明文长度

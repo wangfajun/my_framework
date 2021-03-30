@@ -4,9 +4,10 @@ import java.math.BigInteger;
 
 /**
  * 国密工具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class SecurityUtils {
 

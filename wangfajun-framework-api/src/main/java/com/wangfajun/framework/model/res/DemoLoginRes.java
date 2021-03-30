@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel(value = "会员登录成功返回信息")
-public class UserLoginRes {
+public class DemoLoginRes {
 
     /**
      * 会员Id

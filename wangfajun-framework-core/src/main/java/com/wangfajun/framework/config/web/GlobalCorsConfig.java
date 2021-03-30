@@ -1,13 +1,16 @@
 package com.wangfajun.framework.config.web;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
+
 import lombok.Setter;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
 import java.util.List;
 
 /**
@@ -15,8 +18,9 @@ import java.util.List;
  * cors配置
  * </p>
  *
- * @author ChenKelong
- * @version $ Id: GlobalCorsConfig.java, v 1.0 2020-11-13 chenkelong Exp $
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Configuration
 @ConfigurationProperties(prefix = "globalcors.configurations")

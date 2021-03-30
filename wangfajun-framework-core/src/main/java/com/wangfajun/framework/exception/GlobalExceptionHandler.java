@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
  * 全局异常处理器
  *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Slf4j
 @ControllerAdvice

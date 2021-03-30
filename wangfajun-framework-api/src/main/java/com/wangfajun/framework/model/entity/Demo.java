@@ -21,7 +21,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName(value = "fl_user_info", autoResultMap = true)
-public class UserInfo implements Serializable {
+public class Demo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

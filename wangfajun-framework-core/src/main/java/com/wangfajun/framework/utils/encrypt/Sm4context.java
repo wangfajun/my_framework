@@ -2,11 +2,13 @@ package com.wangfajun.framework.utils.encrypt;
 
 /**
  * 国密工SM4具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm4context {
+
 	public int mode;
 
 	public long[] sk;

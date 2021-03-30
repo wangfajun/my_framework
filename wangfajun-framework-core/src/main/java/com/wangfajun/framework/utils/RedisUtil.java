@@ -3,7 +3,6 @@ package com.wangfajun.framework.utils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +10,12 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * redis工具类
+ * redis操作工具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
- **/
+ * @date 2021/3/30 19:56
+ */
 @Component
 public final class RedisUtil {
 

@@ -8,13 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Http工具类
- * @author Administrator
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Slf4j
 public class ContextHolderUtils {
 
 	/**
 	 * 获取HttpServletRequest对象
+	 *
 	 * @return
 	 */
 	public static HttpServletRequest getRequest() {
@@ -25,6 +29,7 @@ public class ContextHolderUtils {
 
 	/**
 	 * 获取HttpServletResponse对象
+	 *
 	 * @return
 	 */
 	public static HttpServletResponse getResponse() {

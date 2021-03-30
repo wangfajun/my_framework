@@ -4,21 +4,22 @@ import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.math.ec.ECPoint;
-
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * SM2非对称加密工具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm2utils {
 
 	/**
 	 * 生成随机秘钥对
+	 *
 	 * @return
 	 */
 	public static Map<String, String> generateKeyPair() {
@@ -41,6 +42,7 @@ public class Sm2utils {
 
 	/**
 	 * 数据加密
+	 *
 	 * @param publicKey
 	 * @param data
 	 * @return
@@ -73,6 +75,7 @@ public class Sm2utils {
 
 	/**
 	 * 数据解密
+	 *
 	 * @param privateKey
 	 * @param encryptedData
 	 * @return

@@ -21,9 +21,11 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author zhundian
- * <p>
  * 资源服务器对外直接暴露URL,如果设置contex-path 要特殊处理
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Slf4j
 @Configuration

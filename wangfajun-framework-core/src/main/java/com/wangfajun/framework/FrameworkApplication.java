@@ -7,7 +7,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.boot.SpringApplication;
 
 /**
- * @author Administrator
+ * 后台SSM基本框架
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @EnableSwagger2
 @SpringBootApplication

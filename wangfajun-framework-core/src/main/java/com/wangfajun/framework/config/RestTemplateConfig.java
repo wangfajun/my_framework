@@ -6,6 +6,13 @@ import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * RestTemplate配置类
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 @Configuration
 public class RestTemplateConfig {
 

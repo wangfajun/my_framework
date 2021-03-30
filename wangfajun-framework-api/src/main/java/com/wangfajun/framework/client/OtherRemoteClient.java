@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 
+/**
+ * 外部feign调用
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 @FeignClient(
 		name = CommonConstants.REMOTE_CLIENT,
 		url = "${otherService.service.url}",

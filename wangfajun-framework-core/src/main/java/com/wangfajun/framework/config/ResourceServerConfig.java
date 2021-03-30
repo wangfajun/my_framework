@@ -14,10 +14,12 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 /**
- * 资源服务器配置放行接口 标识为资源服务器，请求服务中的资源，就要带着token过来，找不到token或token是无效访问不了资源 开启方法级别权限控制
+ * 资源服务器配置放行接口 标识为资源服务器，请求服务中的资源，就要带着token过来
+ * 找不到token或token是无效访问不了资源 开启方法级别权限控制
  *
- * @program: framework
- * @author: wangfajun
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Configuration
 @EnableResourceServer

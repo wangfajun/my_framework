@@ -3,8 +3,9 @@ package com.wangfajun.framework.exception;
 /**
  * 自定义枚举
  *
- * @author august
+ * @author wangfajun
  * @version 1.0
+ * @date 2021/3/30 19:56
  */
 public enum FrameWorkErrorCode {
 

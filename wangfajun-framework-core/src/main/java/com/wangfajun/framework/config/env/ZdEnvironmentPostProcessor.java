@@ -17,11 +17,12 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * <p>
  * 自定义环境加载策略 需要在classpath下application.yml或application.properties中指定文件位置
  * 配置key:config.file.absolute.path
- * </p>
  *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 public class ZdEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 

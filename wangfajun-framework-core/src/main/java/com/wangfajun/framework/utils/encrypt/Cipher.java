@@ -9,16 +9,17 @@ import java.math.BigInteger;
 
 /**
  * 国密工具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Cipher {
 	private int ct;
 	private ECPoint p2;
 	private Sm3digest sm3keybase;
 	private Sm3digest sm3c3;
-	private byte [] key;
+	private byte[] key;
 	private byte keyOff;
 
 	public Cipher() {
@@ -31,7 +32,7 @@ public class Cipher {
 		this.sm3keybase = new Sm3digest();
 		this.sm3c3 = new Sm3digest();
 
-		byte [] p = SecurityUtils.byteConvert32Bytes(p2.getX().toBigInteger());
+		byte[] p = SecurityUtils.byteConvert32Bytes(p2.getX().toBigInteger());
 		this.sm3keybase.update(p, 0, p.length);
 		this.sm3c3.update(p, 0, p.length);
 
@@ -63,7 +64,7 @@ public class Cipher {
 		return c1;
 	}
 
-	public void encrypt(byte [] data) {
+	public void encrypt(byte[] data) {
 		this.sm3c3.update(data, 0, data.length);
 		for (int i = 0; i < data.length; i++) {
 			if (keyOff == key.length) {
@@ -78,7 +79,7 @@ public class Cipher {
 		reset();
 	}
 
-	public void decrypt(byte [] data) {
+	public void decrypt(byte[] data) {
 		for (int i = 0; i < data.length; i++) {
 			if (keyOff == key.length) {
 				nextKey();
@@ -89,8 +90,8 @@ public class Cipher {
 		this.sm3c3.update(data, 0, data.length);
 	}
 
-	public void dofinal(byte [] c3) {
-		byte [] p = SecurityUtils.byteConvert32Bytes(p2.getY().toBigInteger());
+	public void dofinal(byte[] c3) {
+		byte[] p = SecurityUtils.byteConvert32Bytes(p2.getY().toBigInteger());
 		this.sm3c3.update(p, 0, p.length);
 		this.sm3c3.doFinal(c3, 0);
 		reset();

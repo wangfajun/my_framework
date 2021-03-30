@@ -9,10 +9,10 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * 数据脱敏注解
  *
- * @author wy
- * @program zhundian-salary
- * @date 2020-12-30 18:06:25
- **/
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @JacksonAnnotationsInside
 @JsonSerialize(using = DesensitizedSerialize.class)

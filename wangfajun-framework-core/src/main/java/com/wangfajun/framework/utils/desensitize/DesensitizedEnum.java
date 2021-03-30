@@ -3,9 +3,11 @@ package com.wangfajun.framework.utils.desensitize;
 import lombok.Getter;
 
 /**
- * @author wy
- * @Description 脱敏类型
- * @Date 2020-12-30 17:49:15
+ * 脱敏类型
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Getter
 public enum DesensitizedEnum {

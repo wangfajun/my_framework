@@ -1,62 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false" scan="false">
 
-	<contextName>logback</contextName>
-    <springProperty scope="context" name="log_file_path" source="log.filePath" defaultValue="/opt/logs/framework" />
-	<springProperty scope="context" name="log_level_root" source="logging.level.root" defaultValue="INFO" />
-    <property name="log.path" value="${log_file_path}" />	<!-- 彩色日志格式 -->
-	<property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+	<!-- 日志上下文名称 -->
+	<contextName>${spring.application.name}-logback</contextName>
+	<!-- 日志文件保存路径 -->
+	<springProperty scope="context" name="log.path" source="logging.file.path" defaultValue="/opt/logs"/>
+	<!-- 日志级别设置 -->
+	<springProperty scope="context" name="log.level.console" source="logging.level.root" defaultValue="INFO"/>
+	<!-- 应用名 -->
+	<springProperty scope="context" name="spring.application.name" source="spring.application.name"/>
+	<!-- 加载文件 -->
+	<springProperty scope="context" name="spring.profiles.active" source="spring.profiles.active"/>
+	<!-- sql打印级别 -->
+	<springProperty scope="context" name="log.level.dao" source="logging.level.sql" defaultValue="DEBUG"/>
+	<!-- 端口 -->
+	<springProperty scope="context" name="server.port" source="server.port" defaultValue="8080"/>
 	<!-- 彩色日志依赖的渲染类 -->
 	<conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
 	<conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
 	<conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
-	<!-- Console log output -->
-	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder>
-			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
-		</encoder>
-	</appender>
+	<!-- 彩色日志格式 -->
+	<springProperty scope="context" name="common-pattern-color" source="logging.common-pattern-color" defaultValue="[ ${spring.application.name}:${server.port}:${PID}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%5p ]) %clr([ %t:%r ]){orange} %clr(%-40.40logger{39}){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+	<springProperty scope="context" name="common-pattern" source="logging.common-pattern" defaultValue="[ ${spring.application.name}:${server.port}:${PID}] %d{yyyy-MM-dd HH:mm:ss.SSS}[%5p ] [ %t:%r ] [ %-40.40logger{39}.%M:%L] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
-	<!-- Log file debug output -->
-	<appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_file_path}/debug.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_file_path}/%d{yyyy-MM, aux}/debug.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-			<maxFileSize>100MB</maxFileSize>
-			<maxHistory>15</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
-		</encoder>
-	</appender>
-
-	<!-- Log file error output -->
-	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log_file_path}/error.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log_file_path}/%d{yyyy-MM}/error.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-			<maxFileSize>100MB</maxFileSize>
-			<maxHistory>15</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
-		</encoder>
+	<!-- 控制台实时输出，采用高亮语法，用于开发环境 -->
+	<appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>ERROR</level>
+			<!--            <level>${log.level.console}</level>-->
 		</filter>
+		<encoder>
+			<pattern>${common-pattern-color}</pattern>
+		</encoder>
+	</appender>
+	<!-- 控制台异步实时输出 -->
+	<appender name="ASYNC_CONSOLE_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
+		<!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+		<discardingThreshold>0</discardingThreshold>
+		<!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+		<queueSize>256</queueSize>
+		<!-- 添加附加的appender,最多只能添加一个 -->
+		<appender-ref ref="CONSOLE_APPENDER"/>
 	</appender>
 
-	<root level="DEBUG">
-		<appender-ref ref="console"/>
-	</root>
+	<!-- 整个项目的所有日志， 包括第三方包 -->
+	<appender name="ROOT_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/${spring.application.name}/root.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 每天一归档 -->
+			<fileNamePattern>${log.path}/${spring.application.name}/%d{yyyy-MM}/root-%d{yyyy-MM-dd}-%i.log.gz
+			</fileNamePattern>
+			<!-- 单个日志文件最多 100MB, 60天的日志周期，最大不能超过20GB -->
+			<maxFileSize>128MB</maxFileSize>
+			<maxHistory>60</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${common-pattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="ASYNC_ROOT_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>256</queueSize>
+		<appender-ref ref="ROOT_APPENDER"/>
+	</appender>
 
-	<root level="INFO">
-		<appender-ref ref="debug"/>
-		<appender-ref ref="console"/>
-	</root>
+	<!-- dao 层日志，用于打印执行的sql  -->
+	<appender name="DAO_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/${spring.application.name}/dao.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/${spring.application.name}/%d{yyyy-MM}/dao-%d{yyyy-MM-dd}-%i.log.gz
+			</fileNamePattern>
+			<maxFileSize>128MB</maxFileSize>
+			<maxHistory>60</maxHistory>
+			<totalSizeCap>10GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${common-pattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="ASYNC_DAO_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>256</queueSize>
+		<appender-ref ref="DAO_APPENDER"/>
+	</appender>
 
-	<root level="ERROR">
-		<appender-ref ref="error"/>
-	</root>
+	<!-- 设置需要打印日志的包及输出级别 -->
+	<logger name="com.alibaba.nacos" level="warn" />
+	<logger name="com.oit" level="debug" />
+	<logger name="com.springframework.security" level="debug" />
+
+	<!-- 开发环境日志级别 -->
+	<springProfile name="prod">
+		<root level="${log.level.console}">
+			<appender-ref ref="ASYNC_ROOT_APPENDER"/>
+			<appender-ref ref="ASYNC_CONSOLE_APPENDER"/>
+		</root>
+	</springProfile>
+
+	<!-- 开发环境日志级别 -->
+	<springProfile name="dev,test">
+		<root level="${log.level.console}">
+			<appender-ref ref="CONSOLE_APPENDER"/>
+			<appender-ref ref="ROOT_APPENDER"/>
+		</root>
+	</springProfile>
 
 </configuration>

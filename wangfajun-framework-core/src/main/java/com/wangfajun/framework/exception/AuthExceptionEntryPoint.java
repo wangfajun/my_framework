@@ -17,6 +17,8 @@ import cn.hutool.json.JSONUtil;
  * oauth异常拦截
  *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Component
 public class AuthExceptionEntryPoint implements AuthenticationEntryPoint {

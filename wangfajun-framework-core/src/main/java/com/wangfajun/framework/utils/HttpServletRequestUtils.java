@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.google.common.collect.Maps;
 import com.wangfajun.framework.exception.FrameworkErrorException;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,15 +13,15 @@ import java.net.URLDecoder;
 import java.util.*;
 
 /**
- * @author zhengyangjun
+ * 请求参数封装
+ *
+ * @author wangfajun
  * @version 1.0
- * @Description request请求参数封装
- * @date 2020/11/18 09:34
+ * @date 2021/3/30 19:56
  */
 public class HttpServletRequestUtils {
 
 	private HttpServletRequestUtils() {
-
 	}
 
 	public static String getRequestInfo(HttpServletRequest request) {

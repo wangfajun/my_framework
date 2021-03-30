@@ -1,16 +1,17 @@
-package com.wangfajun.framework.handler;
+package com.wangfajun.framework.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.model.entity.Demo;
 
 /**
- * 登录处理器
+ * Demo服务层
  *
  * @author wangfajun
  * @version 1.0
  * @date 2021/3/30 19:56
  */
-public interface LoginHandler {
+public interface DemoService extends IService<Demo> {
 
 	/**
 	 * 登录
@@ -18,14 +19,11 @@ public interface LoginHandler {
 	 * @param mobile 登录请求参数
 	 * @return
 	 */
-	DemoLoginRes handle(String mobile);
+	DemoLoginRes login(String mobile);
 
 	/**
-	 * 查询员工信息
-	 *
-	 * @param mobile 手机号
-	 * @return
+	 * 退出
 	 */
-	Demo info(String mobile);
+	void logout();
 
 }

@@ -7,11 +7,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @description: 短信验证码校验注解
+ * 短信验证码校验注解
  *
- * @program: zhundian-flexible
- **/
-@Target({ElementType.METHOD,ElementType.TYPE})
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface SmsCheck {

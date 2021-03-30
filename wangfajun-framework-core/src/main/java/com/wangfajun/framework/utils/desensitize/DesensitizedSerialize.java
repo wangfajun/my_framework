@@ -6,15 +6,15 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
-
 import java.io.IOException;
 import java.util.Objects;
 
 /**
  * 数据脱敏序列化类
  *
- * @author wy
- * @Date 2020/12/31 10:39
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 public class DesensitizedSerialize extends JsonSerializer<String> implements ContextualSerializer {
 

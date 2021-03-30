@@ -1,8 +1,11 @@
-# 服务信息配置
+# 项目信息配置
 spring:
   application:
     name: framework
+  profiles:
+    active: dev
 
+# 端口配置
 server:
   port: 8080
   servlet:
@@ -12,7 +15,7 @@ server:
       enabled: true
       charset: UTF-8
 
-# mybatis-plus
+# mybatis-plus配置
 mybatis-plus:
   global-config:
     db-config:
@@ -30,14 +33,18 @@ mybatis-plus:
   mapper-locations: classpath*:mybatis/*Mapper.xml
   type-aliases-package: com.wangfajun.framework.model.entity
 
-#默认日志配置
+# 默认日志配置
 logging:
   #日志文件路径配置
-  filePath:  /opt/logs/framework
   config: classpath:logback-spring.xml
   level:
-    root: INFO
+    root: ERROR
+  file:
+    path: /opt/logs/framework
 
+# 数据加密KEY
+aes:
+  key: laowang_framework
 # 读取外部配置文件
 config:
   file:

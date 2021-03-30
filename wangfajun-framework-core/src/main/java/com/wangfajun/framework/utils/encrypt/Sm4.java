@@ -5,9 +5,10 @@ import java.io.ByteArrayOutputStream;
 
 /**
  * 国密SM4
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm4 {
 
@@ -19,33 +20,33 @@ public class Sm4 {
 
 	private static int thirtyTwo = 32;
 
-	private long getUlongbe(byte[] b, int i){
-		long n = (long)(b[i] & 0xff) << 24 | (long)((b[i + 1] & 0xff) << 16) | (long)((b[i + 2] & 0xff) << 8) | (long)(b[i + 3] & 0xff) & 0xffffffffL;
+	private long getUlongbe(byte[] b, int i) {
+		long n = (long) (b[i] & 0xff) << 24 | (long) ((b[i + 1] & 0xff) << 16) | (long) ((b[i + 2] & 0xff) << 8) | (long) (b[i + 3] & 0xff) & 0xffffffffL;
 		return n;
 	}
 
-	private void putUlongbe(long n, byte[] b, int i){
-		b[i] = (byte)(int)(0xFF & n >> 24);
-		b[i + 1] = (byte)(int)(0xFF & n >> 16);
-		b[i + 2] = (byte)(int)(0xFF & n >> 8);
-		b[i + 3] = (byte)(int)(0xFF & n);
+	private void putUlongbe(long n, byte[] b, int i) {
+		b[i] = (byte) (int) (0xFF & n >> 24);
+		b[i + 1] = (byte) (int) (0xFF & n >> 16);
+		b[i + 2] = (byte) (int) (0xFF & n >> 8);
+		b[i + 3] = (byte) (int) (0xFF & n);
 	}
 
-	private long shl(long x, int n){
+	private long shl(long x, int n) {
 		return (x & 0xFFFFFFFF) << n;
 	}
 
-	private long rotl(long x, int n){
+	private long rotl(long x, int n) {
 		return shl(x, n) | x >> (32 - n);
 	}
 
-	private void swap(long[] sk, int i){
+	private void swap(long[] sk, int i) {
 		long t = sk[i];
 		sk[i] = sk[(31 - i)];
 		sk[(31 - i)] = t;
 	}
 
-	public static final byte[] SBOX_TABLE = { (byte) 0xd6, (byte) 0x90, (byte) 0xe9, (byte) 0xfe,
+	public static final byte[] SBOX_TABLE = {(byte) 0xd6, (byte) 0x90, (byte) 0xe9, (byte) 0xfe,
 			(byte) 0xcc, (byte) 0xe1, 0x3d, (byte) 0xb7, 0x16, (byte) 0xb6,
 			0x14, (byte) 0xc2, 0x28, (byte) 0xfb, 0x2c, 0x05, 0x2b, 0x67,
 			(byte) 0x9a, 0x76, 0x2a, (byte) 0xbe, 0x04, (byte) 0xc3,
@@ -83,27 +84,27 @@ public class Sm4 {
 			(byte) 0x96, 0x77, 0x7e, 0x65, (byte) 0xb9, (byte) 0xf1, 0x09,
 			(byte) 0xc5, 0x6e, (byte) 0xc6, (byte) 0x84, 0x18, (byte) 0xf0,
 			0x7d, (byte) 0xec, 0x3a, (byte) 0xdc, 0x4d, 0x20, 0x79,
-			(byte) 0xee, 0x5f, 0x3e, (byte) 0xd7, (byte) 0xcb, 0x39, 0x48 };
+			(byte) 0xee, 0x5f, 0x3e, (byte) 0xd7, (byte) 0xcb, 0x39, 0x48};
 
-	public static final int[] FK = { 0xa3b1bac6, 0x56aa3350, 0x677d9197, 0xb27022dc };
+	public static final int[] FK = {0xa3b1bac6, 0x56aa3350, 0x677d9197, 0xb27022dc};
 
-	public static final int[] CK = { 0x00070e15,0x1c232a31,0x383f464d,0x545b6269,
-			0x70777e85,0x8c939aa1,0xa8afb6bd,0xc4cbd2d9,
-			0xe0e7eef5,0xfc030a11,0x181f262d,0x343b4249,
-			0x50575e65,0x6c737a81,0x888f969d,0xa4abb2b9,
-			0xc0c7ced5,0xdce3eaf1,0xf8ff060d,0x141b2229,
-			0x30373e45,0x4c535a61,0x686f767d,0x848b9299,
-			0xa0a7aeb5,0xbcc3cad1,0xd8dfe6ed,0xf4fb0209,
-			0x10171e25,0x2c333a41,0x484f565d,0x646b7279
+	public static final int[] CK = {0x00070e15, 0x1c232a31, 0x383f464d, 0x545b6269,
+			0x70777e85, 0x8c939aa1, 0xa8afb6bd, 0xc4cbd2d9,
+			0xe0e7eef5, 0xfc030a11, 0x181f262d, 0x343b4249,
+			0x50575e65, 0x6c737a81, 0x888f969d, 0xa4abb2b9,
+			0xc0c7ced5, 0xdce3eaf1, 0xf8ff060d, 0x141b2229,
+			0x30373e45, 0x4c535a61, 0x686f767d, 0x848b9299,
+			0xa0a7aeb5, 0xbcc3cad1, 0xd8dfe6ed, 0xf4fb0209,
+			0x10171e25, 0x2c333a41, 0x484f565d, 0x646b7279
 	};
 
-	private byte sm4Sbox(byte inch){
+	private byte sm4Sbox(byte inch) {
 		int i = inch & 0xFF;
 		byte retVal = SBOX_TABLE[i];
 		return retVal;
 	}
 
-	private long sm4Lt(long ka){
+	private long sm4Lt(long ka) {
 		long bb = 0L;
 		long c = 0L;
 		byte[] a = new byte[4];
@@ -118,11 +119,11 @@ public class Sm4 {
 		return c;
 	}
 
-	private long sm4F(long x0, long x1, long x2, long x3, long rk){
+	private long sm4F(long x0, long x1, long x2, long x3, long rk) {
 		return x0 ^ sm4Lt(x1 ^ x2 ^ x3 ^ rk);
 	}
 
-	private long sm4Calcirk(long ka){
+	private long sm4Calcirk(long ka) {
 		long bb = 0L;
 		long rk = 0L;
 		byte[] a = new byte[4];
@@ -137,7 +138,7 @@ public class Sm4 {
 		return rk;
 	}
 
-	private void sm4setkey(long[] sk, byte[] key){
+	private void sm4setkey(long[] sk, byte[] key) {
 		long[] mk = new long[4];
 		long[] k = new long[36];
 		int i = 0;
@@ -149,22 +150,20 @@ public class Sm4 {
 		k[1] = mk[1] ^ (long) FK[1];
 		k[2] = mk[2] ^ (long) FK[2];
 		k[3] = mk[3] ^ (long) FK[3];
-		for (; i < thirtyTwo; i++)
-		{
+		for (; i < thirtyTwo; i++) {
 			k[(i + 4)] = (k[i] ^ sm4Calcirk(k[(i + 1)] ^ k[(i + 2)] ^ k[(i + 3)] ^ (long) CK[i]));
 			sk[i] = k[(i + 4)];
 		}
 	}
 
-	private void sm4OneRound(long[] sk, byte[] input, byte[] output){
+	private void sm4OneRound(long[] sk, byte[] input, byte[] output) {
 		int i = 0;
 		long[] ulbuf = new long[36];
 		ulbuf[0] = getUlongbe(input, 0);
 		ulbuf[1] = getUlongbe(input, 4);
 		ulbuf[2] = getUlongbe(input, 8);
 		ulbuf[3] = getUlongbe(input, 12);
-		while (i < thirtyTwo)
-		{
+		while (i < thirtyTwo) {
 			ulbuf[(i + 4)] = sm4F(ulbuf[i], ulbuf[(i + 1)], ulbuf[(i + 2)], ulbuf[(i + 3)], sk[i]);
 			i++;
 		}
@@ -174,21 +173,20 @@ public class Sm4 {
 		putUlongbe(ulbuf[32], output, 12);
 	}
 
-	private byte[] padding(byte[] input, int mode){
-		if (input == null){
+	private byte[] padding(byte[] input, int mode) {
+		if (input == null) {
 			return null;
 		}
 
 		byte[] ret = (byte[]) null;
-		if (mode == SM4_ENCRYPT){
+		if (mode == SM4_ENCRYPT) {
 			int p = 16 - input.length % 16;
 			ret = new byte[input.length + p];
 			System.arraycopy(input, 0, ret, 0, input.length);
-			for (int i = 0; i < p; i++)
-			{
+			for (int i = 0; i < p; i++) {
 				ret[input.length + i] = (byte) p;
 			}
-		}else{
+		} else {
 			int p = input[input.length - 1];
 			ret = new byte[input.length - p];
 			System.arraycopy(input, 0, ret, 0, input.length - p);
@@ -238,7 +236,7 @@ public class Sm4 {
 		int length = input.length;
 		ByteArrayInputStream bins = new ByteArrayInputStream(input);
 		ByteArrayOutputStream bous = new ByteArrayOutputStream();
-		for(; length > 0; length -= sixteen) {
+		for (; length > 0; length -= sixteen) {
 			byte[] in = new byte[16];
 			byte[] out = new byte[16];
 			bins.read(in);
@@ -273,7 +271,7 @@ public class Sm4 {
 		ByteArrayInputStream bins = new ByteArrayInputStream(input);
 		ByteArrayOutputStream bous = new ByteArrayOutputStream();
 		if (ctx.mode == SM4_ENCRYPT) {
-			for(; length > 0; length -= sixteen) {
+			for (; length > 0; length -= sixteen) {
 				byte[] in = new byte[16];
 				byte[] out = new byte[16];
 				byte[] out1 = new byte[16];
@@ -288,7 +286,7 @@ public class Sm4 {
 			}
 		} else {
 			byte[] temp = new byte[16];
-			for(; length > 0; length -= sixteen) {
+			for (; length > 0; length -= sixteen) {
 				byte[] in = new byte[16];
 				byte[] out = new byte[16];
 				byte[] out1 = new byte[16];
@@ -296,8 +294,7 @@ public class Sm4 {
 				bins.read(in);
 				System.arraycopy(in, 0, temp, 0, 16);
 				sm4OneRound(ctx.sk, in, out);
-				for (i = 0; i < sixteen; i++)
-				{
+				for (i = 0; i < sixteen; i++) {
 					out1[i] = ((byte) (out[i] ^ iv[i]));
 				}
 				System.arraycopy(temp, 0, iv, 0, 16);

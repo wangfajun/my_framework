@@ -2,9 +2,10 @@ package com.wangfajun.framework.utils.encrypt;
 
 /**
  * 国密SM3
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm3 {
 
@@ -26,8 +27,6 @@ public class Sm3 {
 	private static int sixtyFour = 64;
 
 	private static int sixtyEight = 68;
-
-
 
 	static {
 		for (int i = 0; i < sixteen; i++) {
@@ -113,8 +112,8 @@ public class Sm3 {
 	}
 
 	private static int[][] expand(int[] one) {
-		int [] w = new int[68];
-		int [] w1 = new int[64];
+		int[] w = new int[68];
+		int[] w1 = new int[64];
 		for (int i = 0; i < one.length; i++) {
 			w[i] = one[i];
 		}
@@ -128,7 +127,7 @@ public class Sm3 {
 			w1[i] = w[i] ^ w[i + 4];
 		}
 
-		int [][] arr = new int[][]{w, w1};
+		int[][] arr = new int[][]{w, w1};
 		return arr;
 	}
 
@@ -158,6 +157,7 @@ public class Sm3 {
 
 	/**
 	 * 逻辑位运算函数
+	 *
 	 * @param x
 	 * @param y
 	 * @param z

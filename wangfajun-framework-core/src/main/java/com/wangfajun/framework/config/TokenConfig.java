@@ -1,20 +1,19 @@
 package com.wangfajun.framework.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
-
 import javax.sql.DataSource;
 
 /**
- * 令牌管理
+ * oauth2令牌存储方式配置类
  *
- * @program: zhundian-contract
- * @author: wangfajun
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Configuration
 public class TokenConfig {

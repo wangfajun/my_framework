@@ -4,14 +4,14 @@ import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.wangfajun.framework.aes.FrameWorkAESCipher;
 import com.wangfajun.framework.constant.CommonConstants;
-import com.wangfajun.framework.convert.UserInfoConverter;
+import com.wangfajun.framework.convert.DemoConverter;
 import com.wangfajun.framework.enums.UserInfoStatusEnum;
 import com.wangfajun.framework.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.exception.FrameworkErrorException;
-import com.wangfajun.framework.model.res.UserLoginRes;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.handler.LoginHandler;
-import com.wangfajun.framework.mapper.UserInfoMapper;
-import com.wangfajun.framework.model.entity.UserInfo;
+import com.wangfajun.framework.mapper.DemoMapper;
+import com.wangfajun.framework.model.entity.Demo;
 import com.wangfajun.framework.utils.LoginTokenControlUtil;
 import com.wangfajun.framework.utils.RedissonLockUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +22,17 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 手机号登录处理器
+ *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Slf4j
-@Component("mobileLogin")
-public class UserLoginHandler implements LoginHandler {
+@Component("demoLogin")
+public class DemoLoginHandler implements LoginHandler {
 
 	@Autowired
-	private UserInfoMapper userInfoMapper;
+	private DemoMapper userInfoMapper;
 
 	@Autowired
 	private RedissonLockUtils redissonLockUtils;
@@ -41,7 +44,7 @@ public class UserLoginHandler implements LoginHandler {
 	private FrameWorkAESCipher frameWorkAESCipher;
 
 	@Autowired
-	private UserInfoConverter userInfoConverter;
+	private DemoConverter userInfoConverter;
 
 	/**
 	 * 登录
@@ -50,12 +53,12 @@ public class UserLoginHandler implements LoginHandler {
 	 */
 	@Override
 	@Transactional
-	public UserLoginRes handle(String mobile) {
+	public DemoLoginRes handle(String mobile) {
 		String key = CommonConstants.FRAMEWORK_DISTRIBUTED_LOGIN_KEY + mobile;
 		try {
 			if(redissonLockUtils.tryLock(key, CommonConstants.WAIT_TIME, CommonConstants.LEASE_TIME, TimeUnit.MILLISECONDS)){
 				// 根据手机号，获取会员信息
-				UserInfo userInfo = info(mobile);
+				Demo userInfo = info(mobile);
 				if (userInfo == null) {
 					userInfo = userInfoConverter.buildUserInfo(mobile);
 					int count = userInfoMapper.insert(userInfo);
@@ -87,9 +90,9 @@ public class UserLoginHandler implements LoginHandler {
 	 * @return Member 会员信息
 	 */
 	@Override
-	public UserInfo info(String mobile) {
-		UserInfo userInfo = userInfoMapper.selectOne(Wrappers.<UserInfo>query().lambda()
-				.eq(UserInfo::getMobile, frameWorkAESCipher.encrypt(mobile))
+	public Demo info(String mobile) {
+		Demo userInfo = userInfoMapper.selectOne(Wrappers.<Demo>query().lambda()
+				.eq(Demo::getMobile, frameWorkAESCipher.encrypt(mobile))
 		);
 		if (ObjectUtils.isEmpty(userInfo)) {
 			log.info("手机号:{}未注册",mobile);

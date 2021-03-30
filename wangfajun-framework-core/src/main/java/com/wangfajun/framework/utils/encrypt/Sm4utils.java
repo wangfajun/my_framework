@@ -2,15 +2,15 @@ package com.wangfajun.framework.utils.encrypt;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * SM4对称加密工具类
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 public class Sm4utils {
 
@@ -34,7 +34,8 @@ public class Sm4utils {
 
 	private static boolean hexString = false;
 
-	public Sm4utils() {}
+	public Sm4utils() {
+	}
 
 	private static final Pattern CHECK_SM4 = Pattern.compile(RegexUtil.CHECK_SM4);
 
