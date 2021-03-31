@@ -5,9 +5,10 @@ import lombok.Data;
 
 /**
  * jwt token解析返回内容
+ *
  * @author wangfajun
  * @version 1.0
- * @date 2020/10/22 11:17
+ * @date 2021/3/30 19:56
  */
 @Data
 public class JwtUserInfoRes {

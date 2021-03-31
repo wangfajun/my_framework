@@ -5,11 +5,14 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 会员登录成功返回信息
+ * 登录成功返回信息
+ *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Data
-@ApiModel(value = "会员登录成功返回信息")
+@ApiModel(value = "登录成功返回信息")
 public class DemoLoginRes {
 
     /**

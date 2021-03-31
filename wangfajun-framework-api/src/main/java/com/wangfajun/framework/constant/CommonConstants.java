@@ -2,7 +2,10 @@ package com.wangfajun.framework.constant;
 
 /**
  * 常量
- * @author Administrator
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 public interface CommonConstants {
 
@@ -19,7 +22,7 @@ public interface CommonConstants {
 	/**
 	 * 失败标记
 	 */
-	Integer FAIL = 1;
+	Integer FAIL = -1;
 
 	/**
 	 * 灵活用工登录，手机号作为前缀分布式key

@@ -11,16 +11,16 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- *  灵活用工用户表
- * </p>
+ * demo表
  *
  * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName(value = "fl_user_info", autoResultMap = true)
+@TableName(value = "fm_demo_info", autoResultMap = true)
 public class Demo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,54 +39,22 @@ public class Demo implements Serializable {
     /**
      * 手机号
      */
-//	@TableField(typeHandler = SalaryAESEncryptHandler.class)
     private String mobile;
 
     /**
-     * 会员头像
+     * 头像
      */
     private String userImgUrl;
 
     /**
      * 身份证
      */
-//	@TableField(typeHandler = SalaryAESEncryptHandler.class)
     private String idCard;
 
     /**
      * 0:启用;1:禁用
      */
     private Integer status;
-
-	/**
-	 * 银行账号
-	 */
-	private String bankNo;
-
-	/**
-	 * 银行名称
-	 */
-	private String bankName;
-
-	/**
-	 * 银行类型
-	 */
-	private String bankType;
-
-	/**
-	 * 阿里账号
-	 */
-	private String aliPayNo;
-
-	/**
-	 * 是否已经认证 0:默认未认证 1:已认证
-	 */
-	private Integer isCert;
-
-	/**
-	 * 认证时间
-	 */
-	private Date certTime;
 
     /**
      * 创建时间

@@ -4,7 +4,6 @@ import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import com.google.common.collect.ImmutableMap;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,19 +11,20 @@ import java.util.regex.Pattern;
 /**
  * 日志脱敏
  *
- * @author wy
- * @Date 2021/1/7 14:42
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Slf4j
 public class DesensitizedLogConverter extends MessageConverter {
 
 	/**
 	 * 脱敏规则
+	 * (mobile|phone|phoneNo),需要脱敏的key,与实体类需匹配属性名
+	 * (:|":"|=),匹配的输出格式:key=value 或 key:value
+	 * (\\d{4})\\d+(\\d{4})"),{字符串左边保留长度} **** {字符串右边保留长度}
 	 */
 	private static final Map<Pattern, String> RULE = new ImmutableMap.Builder<Pattern, String>()
-			// (mobile|phone|phoneNo),需要脱敏的key,与实体类需匹配属性名
-			// (:|":"|=),匹配的输出格式:key=value 或 key:value
-			// (\\d{4})\\d+(\\d{4})"),{字符串左边保留长度} **** {字符串右边保留长度}
 			//手机号
 			.put(Pattern.compile("(mobile|phone|phoneNo)(:|\":\"|=)(\\d{3})\\d{4}(\\d{4})"), "$1$2$3****$4")
 			//银行卡号
@@ -53,4 +53,5 @@ public class DesensitizedLogConverter extends MessageConverter {
 		}
 		return message;
 	}
+
 }

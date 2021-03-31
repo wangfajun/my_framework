@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.wangfajun.framework.aes.FrameWorkAESCipher;
 import com.wangfajun.framework.constant.CommonConstants;
 import com.wangfajun.framework.convert.DemoConverter;
-import com.wangfajun.framework.enums.UserInfoStatusEnum;
+import com.wangfajun.framework.enums.DemoStatusEnum;
 import com.wangfajun.framework.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.exception.FrameworkErrorException;
 import com.wangfajun.framework.model.res.DemoLoginRes;
@@ -99,7 +99,7 @@ public class DemoLoginHandler implements LoginHandler {
 			return null;
 		}else{
 			// 会员账号被冻结
-			if(userInfo.getStatus().equals(UserInfoStatusEnum.USER_FORBIDDEN.getStatus())){
+			if(userInfo.getStatus().equals(DemoStatusEnum.DEMO_FORBIDDEN.getStatus())){
 				throw new FrameworkErrorException(FrameWorkErrorCode.FRAMEWORK_STATUS_INVALID_ERR);
 			}
 		}

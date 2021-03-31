@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
 /**
- * @author zhangzhengguang
- * @date 2021/3/26 2:18 下午
+ * 远程feign调用参数传递配置类
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
  */
 @Configuration
-public class FlexibleFeignConfig {
+public class FeignConfig {
 	@Bean
 	public RequestInterceptor headerInterceptor() {
 		return template -> {

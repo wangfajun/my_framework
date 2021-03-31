@@ -1,7 +1,6 @@
 package com.wangfajun.framework.util;
 
 import com.wangfajun.framework.constant.CommonConstants;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -11,15 +10,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 
 /**
- * @program: zhundian-operator
- * @author: Charles
- * @create: 2020-12-04 11:42
- * @description: 统一返回实体类
- **/
+ * 统一返回实体类
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 @Builder
 @ToString
 @NoArgsConstructor
@@ -32,7 +31,7 @@ public class R<T> implements Serializable {
 
 	@Getter
 	@Setter
-	@ApiModelProperty(value = "返回标记：成功标记=0，失败标记=1")
+	@ApiModelProperty(value = "返回标记：成功标记=0，失败标记=-1")
 	private int code;
 
 	@Getter

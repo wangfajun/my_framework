@@ -3,9 +3,10 @@ package com.wangfajun.framework.util.desensitization;
 /**
  * 脱敏工具类
  *
- * @author wy
- * @Date 2021/1/7 14:42
- **/
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 public class DesensitizedUtils {
 
 	/**

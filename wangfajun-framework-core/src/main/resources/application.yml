@@ -2,8 +2,6 @@
 spring:
   application:
     name: framework
-  profiles:
-    active: dev
 
 # 端口配置
 server:
@@ -13,7 +11,7 @@ server:
     encoding:
       force: true
       enabled: true
-      charset: UTF-8
+      charset: UTF-8`
 
 # mybatis-plus配置
 mybatis-plus:
@@ -37,16 +35,10 @@ mybatis-plus:
 logging:
   #日志文件路径配置
   config: classpath:logback-spring.xml
-  level:
-    root: ERROR
   file:
     path: /opt/logs/framework
 
 # 数据加密KEY
 aes:
   key: laowang_framework
-# 读取外部配置文件
-config:
-  file:
-    absolute:
-      path: /data/zhundian-config/application-framework.yml
+

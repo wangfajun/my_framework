@@ -6,6 +6,13 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * 实名认证请求信息
+ *
+ * @author wangfajun
+ * @version 1.0
+ * @date 2021/3/30 19:56
+ */
 @Data
 @ApiModel(value="实名认证", description="实名认证")
 public class VerifiedReq {
