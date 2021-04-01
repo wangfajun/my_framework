@@ -55,11 +55,6 @@
 
 	<!--公共依赖-->
 	<dependencies>
-		<!--wangfajun-framework-api-->
-		<dependency>
-			<groupId>com.wangfajun</groupId>
-			<artifactId>wangfajun-framework-api</artifactId>
-		</dependency>
 		<!--web-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
