@@ -5,18 +5,19 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.2.RELEASE</version>
-		<relativePath/>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>com.wangfajun</groupId>
 	<artifactId>wangfajun-framework-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<url>http://maven.apache.org</url>
 
 	<modules>
 		<module>wangfajun-framework-api</module>
 		<module>wangfajun-framework-core</module>
+		<module>wangfajun-framework-pay</module>
+		<module>wangfajun-framework-order</module>
 	</modules>
 
 	<properties>
@@ -49,14 +50,15 @@
 		<feign-httpclient.version>10.1.0</feign-httpclient.version>
 		<feign-okhttp.version>11.0</feign-okhttp.version>
 		<commons-pool2.version>2.9.0</commons-pool2.version>
+		<mysql.version>8.0.22</mysql.version>
 	</properties>
 
 	<!--公共依赖-->
 	<dependencies>
-		<!-- Spring Security、OAuth2、JWT-->
+		<!--wangfajun-framework-api-->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
+			<groupId>com.wangfajun</groupId>
+			<artifactId>wangfajun-framework-api</artifactId>
 		</dependency>
 		<!--web-->
 		<dependency>
@@ -198,6 +200,16 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
 		</dependency>
+		<!-- rabbitmq-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<!-- mysql驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 	</dependencies>
 
 	<!--maven依赖管理-->
@@ -216,6 +228,12 @@
 				<groupId>com.wangfajun</groupId>
 				<artifactId>wangfajun-framework-api</artifactId>
 				<version>${api-version}</version>
+			</dependency>
+			<!-- mysql驱动 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
 			</dependency>
 			<!--国密加密 -->
 			<dependency>
@@ -320,12 +338,6 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>easyexcel</artifactId>
 				<version>${easyexcel.version}</version>
-			</dependency>
-			<!--jackson-->
-			<dependency>
-				<groupId>com.fasterxml.jackson.dataformat</groupId>
-				<artifactId>jackson-dataformat-xml</artifactId>
-				<version>${jackson.version}</version>
 			</dependency>
 			<!--HttpClient 工具类 -->
 			<dependency>

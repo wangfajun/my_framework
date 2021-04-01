@@ -1,7 +1,7 @@
 package com.wangfajun.framework.constant;
 
 /**
- * 常量
+ * 公共常量
  *
  * @author wangfajun
  * @version 1.0
@@ -10,9 +10,34 @@ package com.wangfajun.framework.constant;
 public interface CommonConstants {
 
 	/**
-	 * 远程客户端
+	 * 订单交换机
 	 */
-	String REMOTE_CLIENT="REMOTE-CLIENT";
+	String ORDER_EXCHANGE = "order-exchange";
+
+	/**
+	 * 订单死信交换机
+	 */
+	String ORDER_DEAD_EXCHANGE = "order-dead-exchange";
+
+	/**
+	 * 订单队列名称
+	 */
+	String ORDER_QUEUE = "order-queue";
+
+	/**
+	 * 订单死信队列名称
+	 */
+	String ORDER_DEAD_QUEUE = "order-dead-queue";
+
+	/**
+	 * 订单key
+	 */
+	String ORDER_KEY = "order.key";
+
+	/**
+	 * 订单死信key
+	 */
+	String ORDER_DEAD_KEY = "order.dead.key";
 
 	/**
 	 * 成功标记
@@ -25,7 +50,7 @@ public interface CommonConstants {
 	Integer FAIL = -1;
 
 	/**
-	 * 灵活用工登录，手机号作为前缀分布式key
+	 * 登录，手机号作为前缀分布式key
 	 */
 	String FRAMEWORK_DISTRIBUTED_LOGIN_KEY = "flexible:login:";
 
@@ -35,9 +60,9 @@ public interface CommonConstants {
 	String MOBILE_CLIENT_TYPE_LOGIN = "mobileLogin";
 
 	/**
-	 * 准点灵活用工登录令牌
+	 * 登录令牌
 	 */
-	String FRAMEWORK_LOGIN_TOKEN = "flexible:token:";
+	String FRAMEWORK_LOGIN_TOKEN = "login:token:";
 
 	/**
 	 * JWT令牌参数 签名加密秘钥（base64）
@@ -86,7 +111,7 @@ public interface CommonConstants {
 	String MNS_SMS_VERIFY_CODE_KEY = "mns:verifyCode:";
 
 	/**
-	 * 客户端类型，灵活用工登录发短信验证码以这个为clientReqType
+	 * 客户端类型，登录发短信验证码以这个为clientReqType
 	 */
 	String FRAMEWORK_CLIENT_TYPE = "frameword:";
 }

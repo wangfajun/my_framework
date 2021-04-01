@@ -1,8 +1,0 @@
-# 外部配置文件，可以增加自定义内容
-server:
-  port: 8081
-
-# 项目信息配置
-spring:
-  profiles:
-    active: dev

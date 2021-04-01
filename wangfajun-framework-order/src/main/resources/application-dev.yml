@@ -1,0 +1,62 @@
+#=======================开发环境配置================================
+spring:
+  rabbitmq:
+    host: 10.12.0.179
+    port: 5672
+    username: laowang
+    password: laowang
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+        default-requeue-rejected: false
+        retry:
+          enabled: true #是否开启消费者重试（为false时关闭消费者重试，这时消费端代码异常会一直重复收到消息）
+          max-attempts: 3 #最大重试次数
+          initial-interval: 1000 #重试间隔时间（单位毫秒）
+          max-interval: 1200000 #重试最大时间间隔（单位毫秒）
+          multiplier: 5 #应用于前一重试间隔的乘法器。
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: redis@123
+    timeout: 5000 #连接超时 毫秒
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 10000
+        max-idle: 8
+        min-idle: 0
+      shutdown-timeout: 100
+  cache:
+    redis:
+      ## Entry expiration in milliseconds. By default the entries never expire.
+      time-to-live: 1d
+      #写入redis时是否使用键前缀。
+      use-key-prefix: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/service-order?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-total: 5
+      max-wait-millis: 200
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+# 日志配置
+logging:
+  level:
+    root: DEBUG
+
+# 远程服务feign调用demo
+otherService:
+  service:
+    url: http://localhost:8080

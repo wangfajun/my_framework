@@ -1,0 +1,3 @@
+github提交不了，SSL限制：
+异常提示：Unable to access 'https://github.com/wangfajun/my_framework.git/': Unknown SSL protocol error in connection to github.com:443
+解决办法：git config http.sslVerify "false"

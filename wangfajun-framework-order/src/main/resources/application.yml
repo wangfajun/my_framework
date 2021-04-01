@@ -1,15 +1,15 @@
 # 项目信息配置
 spring:
   application:
-    name: framework
+    name: service-order
   profiles:
     active: test
 
 # 端口配置
 server:
-  port: 8080
+  port: 8081
   servlet:
-    context-path: /framework
+    context-path: /service-order
     encoding:
       force: true
       enabled: true
@@ -31,14 +31,14 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
   mapper-locations: classpath*:mybatis/*Mapper.xml
-  type-aliases-package: com.wangfajun.framework.model.entity
+  type-aliases-package: com.wangfajun.framework.order.model.entity
 
 # 默认日志配置
 logging:
   #日志文件路径配置
   config: classpath:logback-spring.xml
   file:
-    path: /opt/logs/framework
+    path: /opt/logs
 
 # 数据加密KEY
 aes:

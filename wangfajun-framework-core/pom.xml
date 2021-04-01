@@ -18,6 +18,11 @@
 			<groupId>com.wangfajun</groupId>
 			<artifactId>wangfajun-framework-api</artifactId>
 		</dependency>
+		<!-- Spring Security、OAuth2、JWT-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
