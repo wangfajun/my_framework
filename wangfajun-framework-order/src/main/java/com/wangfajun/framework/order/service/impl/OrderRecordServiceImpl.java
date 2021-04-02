@@ -1,17 +1,15 @@
 package com.wangfajun.framework.order.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangfajun.framework.enums.OrderStatusEnum;
+import com.wangfajun.framework.api.model.req.EventContent;
 import com.wangfajun.framework.order.entity.OrderRecord;
+import com.wangfajun.framework.api.enums.OrderStatusEnum;
 import com.wangfajun.framework.order.mapper.OrderRecordMapper;
 import com.wangfajun.framework.order.service.OrderRecordService;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Random;
 import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -46,13 +44,14 @@ public class OrderRecordServiceImpl extends ServiceImpl<OrderRecordMapper, Order
 	/**
 	 * 修改订单状态为已支付
 	 *
-	 * @param orderId 订单编号
+	 * @param content 内容
 	 * @return
 	 */
 	@Override
-	public boolean finishOrder(String orderId) {
+	public boolean finishOrder(String content) {
+		EventContent eventContent = JSON.parseObject(content, EventContent.class);
 		OrderRecord orderRecord = new OrderRecord();
-		orderRecord.setOrderId(orderId);
+		orderRecord.setOrderId(eventContent.getOrderId());
 		orderRecord.setStatus(OrderStatusEnum.PAYED.getStatus());
 		return this.updateById(orderRecord);
 	}

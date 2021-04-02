@@ -1,23 +1,23 @@
 package com.wangfajun.framework.pay.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangfajun.framework.enums.EventStatusEnum;
-import com.wangfajun.framework.enums.EventTypeEnum;
-import com.wangfajun.framework.enums.PayStatusEnum;
-import com.wangfajun.framework.model.entity.PayEvent;
-import com.wangfajun.framework.pay.entity.PayRecord;
-import com.wangfajun.framework.pay.mapper.PayEventMapper;
+import com.wangfajun.framework.api.model.req.EventContent;
 import com.wangfajun.framework.pay.mapper.PayRecordMapper;
 import com.wangfajun.framework.pay.service.PayRecordService;
+import com.wangfajun.framework.api.enums.TxEventStatusEnum;
+import com.wangfajun.framework.api.enums.TxEventTypeEnum;
+import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.pay.service.TxEventService;
+import com.wangfajun.framework.api.enums.PayStatusEnum;
+import com.wangfajun.framework.pay.entity.PayRecord;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class PayRecordServiceImpl extends ServiceImpl<PayRecordMapper, PayRecord> implements PayRecordService {
 
-	PayEventMapper payEventMapper;
+	TxEventService txEventService;
 
 	/**
 	 * 模拟支付,保存支付流水记录
@@ -50,7 +50,7 @@ public class PayRecordServiceImpl extends ServiceImpl<PayRecordMapper, PayRecord
 	}
 
 	/**
-	 * 模拟支付回调
+	 * 模拟第三方支付回调
 	 *
 	 * @param payId 支付单编号
 	 * @param orderId 订单编号
@@ -64,15 +64,19 @@ public class PayRecordServiceImpl extends ServiceImpl<PayRecordMapper, PayRecord
 		payRecord.setStatus(PayStatusEnum.PAYED.getStatus());
 		this.updateById(payRecord);
 
-		// 2.插入支付事件,状态为新事件
-		PayEvent payEvent = new PayEvent();
+		// 2.支付成功, 需要跟订单做分布式事务，发布一条 订单事件，状态为:新事件，让订单服务去消费做订单处理
+		TxEvent payEvent = new TxEvent();
 		payEvent.setId(new Random().nextInt(100000));
-		payEvent.setEventType(EventTypeEnum.PAY_EVENT.getType());
-		payEvent.setStatus(EventStatusEnum.NEW.getStatus());
+		payEvent.setEventType(TxEventTypeEnum.ORDER_EVENT.getType());
+		payEvent.setStatus(TxEventStatusEnum.NEW.getStatus());
 		// 内容为：订单编号
-		payEvent.setContent(orderId);
+		EventContent content = new EventContent();
+		content.setBalance(new BigDecimal(100));
+		content.setOrderId(orderId);
+		content.setUserId("888888");
+		payEvent.setContent(JSON.toJSONString(content));
 		payEvent.setCreateTime(new Date());
-		payEventMapper.insert(payEvent);
+		txEventService.save(payEvent);
 	}
 
 }

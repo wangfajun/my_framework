@@ -12,8 +12,8 @@
 	<artifactId>wangfajun-framework-pay</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-
 	<description>pay-service</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

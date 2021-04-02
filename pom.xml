@@ -4,8 +4,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.3.8.RELEASE</version>
+		<relativePath/>
 	</parent>
 
 	<groupId>com.wangfajun</groupId>
@@ -14,10 +14,16 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<!-- 公共模块 -->
 		<module>wangfajun-framework-api</module>
+		<!-- 核心 -->
 		<module>wangfajun-framework-core</module>
+		<!-- 支付服务 -->
 		<module>wangfajun-framework-pay</module>
+		<!-- 订单服务 -->
 		<module>wangfajun-framework-order</module>
+		<!-- 积分服务 -->
+		<module>wangfajun-framework-point</module>
 	</modules>
 
 	<properties>
@@ -44,7 +50,7 @@
 		<swagger.version>2.9.2</swagger.version>
 		<swagger.models.version>1.5.22</swagger.models.version>
 		<knife4j-spring-ui.version>2.0.4</knife4j-spring-ui.version>
-		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR10</spring-cloud.version>
 		<api-version>1.0.0-SNAPSHOT</api-version>
 		<spring-cloud-starter-openfeign.version>2.1.3.RELEASE</spring-cloud-starter-openfeign.version>
 		<feign-httpclient.version>10.1.0</feign-httpclient.version>

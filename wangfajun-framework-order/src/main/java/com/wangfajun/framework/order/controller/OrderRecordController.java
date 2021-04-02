@@ -1,7 +1,7 @@
 package com.wangfajun.framework.order.controller;
 
 import com.wangfajun.framework.order.service.OrderRecordService;
-import com.wangfajun.framework.util.R;
+import com.wangfajun.framework.api.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

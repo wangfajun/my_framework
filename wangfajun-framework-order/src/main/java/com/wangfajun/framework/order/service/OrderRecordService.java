@@ -24,6 +24,6 @@ public interface OrderRecordService extends IService<OrderRecord> {
 	 *
 	 * @return
 	 */
-	boolean finishOrder(String orderId);
+	boolean finishOrder(String content);
 
 }
