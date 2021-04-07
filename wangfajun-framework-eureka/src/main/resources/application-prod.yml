@@ -1,0 +1,31 @@
+# 生产环境
+server:
+  port: 7900
+eureka:
+  instance:
+    hostname: eureka-test
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka-test:7900/eureka/
+
+# 日志配置
+logging:
+  level:
+    root: ERROR
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: redis@123
+    timeout: 5000 #连接超时 毫秒
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 10000
+        max-idle: 8
+        min-idle: 0
+      shutdown-timeout: 100

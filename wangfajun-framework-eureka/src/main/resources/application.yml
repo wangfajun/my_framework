@@ -1,0 +1,35 @@
+# 项目信息配置
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: test
+
+# 端口配置
+server:
+  port: 7900
+
+# eureka配置
+eureka:
+  instance:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+  server:
+    # 自我保护看自己情况
+    enable-self-preservation: true
+    # 续约阈值，和自我保护相关
+    renewal-percent-threshold: 0.85
+    # server剔除过期服务的时间间隔
+    eviction-interval-timer-in-ms: 1000
+    # 是否开启readOnly读缓存
+    use-read-only-response-cache: true
+    # 关闭 readOnly
+    response-cache-update-interval-ms: 1000
+
+# 默认日志配置
+logging:
+  #日志文件路径配置
+  config: classpath:logback-spring.xml
+  file:
+    path: /opt/logs

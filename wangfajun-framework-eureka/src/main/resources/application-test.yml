@@ -1,0 +1,16 @@
+# 测试环境
+server:
+  port: 7900
+eureka:
+  instance:
+    hostname: eureka-server
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# 日志配置
+logging:
+  level:
+    root: INFO

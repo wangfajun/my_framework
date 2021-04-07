@@ -12,6 +12,14 @@ import com.wangfajun.framework.pay.entity.PayRecord;
  */
 public interface PayRecordService extends IService<PayRecord> {
 
+	void updateRecord1(PayRecord payRecord);
+
+	void updateRecord2(PayRecord payRecord);
+
+	void cancelRecord1(PayRecord payRecord);
+
+	void cancelRecord2(PayRecord payRecord);
+
 	/**
 	 * 模拟支付,保存支付流水记录
 	 *

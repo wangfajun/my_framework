@@ -35,6 +35,31 @@ public class PayRecordServiceImpl extends ServiceImpl<PayRecordMapper, PayRecord
 
 	TxEventService txEventService;
 
+	@Override
+	@Transactional
+	public void updateRecord1(PayRecord payRecord) {
+		this.updateById(payRecord);
+	}
+
+	@Override
+	@Transactional
+	public void updateRecord2(PayRecord payRecord) {
+		int i=1/0;
+		this.updateById(payRecord);
+	}
+
+	@Override
+	@Transactional
+	public void cancelRecord1(PayRecord payRecord) {
+		this.updateById(payRecord);
+	}
+
+	@Override
+	@Transactional
+	public void cancelRecord2(PayRecord payRecord) {
+		this.updateById(payRecord);
+	}
+
 	/**
 	 * 模拟支付,保存支付流水记录
 	 */

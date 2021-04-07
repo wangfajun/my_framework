@@ -36,23 +36,23 @@ public class TxEventTask {
     @Scheduled(cron="0/50 * * * * ?")
     @Transactional(rollbackFor = Exception.class)
     public void task(){
-        log.info("订单事件定时任务开始");
-
-        // 查询订单事件的状态为:已接收 数据
-        List<TxEvent> txEventList = txEventService.list(Wrappers.<TxEvent>lambdaQuery()
-				.eq(TxEvent::getEventType, TxEventTypeEnum.ORDER_EVENT.getType())
-				.eq(TxEvent::getStatus, TxEventStatusEnum.RECEIVED.getStatus()));
-
-        for (TxEvent event : txEventList) {
-
-			// 修改订单状态为已支付
-			orderRecordService.finishOrder(event.getContent());
-
-			// 修改状态：已处理
-			event.setStatus(TxEventStatusEnum.FINISHED.getStatus());
-			txEventService.updateById(event);
-        }
-		log.info("订单事件定时任务结束");
+//        log.info("订单事件定时任务开始");
+//
+//        // 查询订单事件的状态为:已接收 数据
+//        List<TxEvent> txEventList = txEventService.list(Wrappers.<TxEvent>lambdaQuery()
+//				.eq(TxEvent::getEventType, TxEventTypeEnum.ORDER_EVENT.getType())
+//				.eq(TxEvent::getStatus, TxEventStatusEnum.RECEIVED.getStatus()));
+//
+//        for (TxEvent event : txEventList) {
+//
+//			// 修改订单状态为已支付
+//			orderRecordService.finishOrder(event.getContent());
+//
+//			// 修改状态：已处理
+//			event.setStatus(TxEventStatusEnum.FINISHED.getStatus());
+//			txEventService.updateById(event);
+//        }
+//		log.info("订单事件定时任务结束");
     }
 
 }

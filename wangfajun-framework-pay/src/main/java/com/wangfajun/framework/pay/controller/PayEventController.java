@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 支付
+ * 本地事件表 支付
  *
  * @author wangfajun
  * @version 1.0
  * @date 2021/3/31 13:58
  */
 @RestController
-@RequestMapping("/pay")
-public class PayController {
+@RequestMapping("/payEvent")
+public class PayEventController {
 
 	@Autowired
 	PayRecordService payService;
