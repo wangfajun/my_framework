@@ -4,12 +4,14 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.wangfajun.framework.point.entity.UserPoint;
 
 /**
- * 积分服务层
+ * AT模式 积分服务层
  *
  * @author wangfajun
  * @version 1.0
  * @date 2021/3/30 19:56
  */
-public interface UserPointService extends IService<UserPoint> {
+public interface UserPointServiceAt extends IService<UserPoint> {
+
+	void saveAt();
 
 }

@@ -3,9 +3,10 @@ package com.wangfajun.framework.account.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wangfajun.framework.account.entity.UserAccount;
 import com.wangfajun.framework.account.mapper.UserAccountMapper;
-import com.wangfajun.framework.account.service.UserAccountService;
+import com.wangfajun.framework.account.service.UserAccountServiceAt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import java.util.Date;
 import java.util.Random;
@@ -21,13 +22,14 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserAccount> implements UserAccountService {
+public class UserAccountServiceAtImpl extends ServiceImpl<UserAccountMapper, UserAccount> implements UserAccountServiceAt {
 
 	@Autowired
 	RestTemplate restTemplate;
 
 	@Override
-	public void saveObj() {
+	@Transactional
+	public void saveAt() {
 		UserAccount account = new UserAccount();
 		account.setId(String.valueOf(new Random().nextInt(10000)));
 		account.setUserName("laowang");
@@ -36,6 +38,6 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
 
 		this.save(account);
 
-		restTemplate.postForEntity("http://service-point/seataAt/save",null,String.class);
+		restTemplate.postForEntity("http://service-point/seata/at",null,String.class);
 	}
 }

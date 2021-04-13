@@ -1,34 +1,47 @@
 package com.wangfajun.framework.account.controller;
 
-import com.wangfajun.framework.account.service.UserAccountService;
+import com.wangfajun.framework.account.service.UserAccountServiceAt;
+import com.wangfajun.framework.account.service.UserAccountServiceTcc;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.seata.spring.annotation.GlobalTransactional;
 
 /**
- * seata AT测试
+ * seata AT、TCC测试
  *
  * @author wangfajun
  * @version 1.0
  * @date 2021/3/31 13:58
  */
 @RestController
-//@RequestMapping("/seataAt")
+@RequestMapping("/seata")
 public class AccountSeataAtController {
 
 	@Autowired
-	UserAccountService userAccountService;
+	UserAccountServiceAt userAccountService;
+
+	@Autowired
+	UserAccountServiceTcc userAccountServiceTcc;
 
 	/**
 	 * seata AT模式 分布式事务测试
 	 */
-	@GetMapping("/one")
+	@PostMapping("/at")
 	@GlobalTransactional(rollbackFor = Exception.class)
 	public String save(){
+		userAccountService.saveAt();
+		return "success";
+	}
 
-		userAccountService.saveObj();
-
+	/**
+	 * seata TCC模式 分布式事务测试
+	 */
+	@PostMapping("/tcc")
+	@GlobalTransactional(rollbackFor = Exception.class)
+	public String oneTcc(){
+		userAccountServiceTcc.userAccountTry(null);
 		return "success";
 	}
 

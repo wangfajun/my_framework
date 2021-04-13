@@ -10,7 +10,7 @@ import com.wangfajun.framework.account.entity.UserAccount;
  * @version 1.0
  * @date 2021/3/30 19:56
  */
-public interface UserAccountService extends IService<UserAccount> {
+public interface UserAccountServiceAt extends IService<UserAccount> {
 
-	void saveObj();
+	void saveAt();
 }
