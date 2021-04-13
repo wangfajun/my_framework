@@ -1,7 +1,7 @@
 package com.wangfajun.framework.order.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.model.entity.TxEvent;
 
 /**
  * 本地消息表 事件 mapper层

@@ -1,7 +1,6 @@
 package com.wangfajun.framework.pay.controller;
 
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
-import com.wangfajun.framework.api.util.R;
 import com.wangfajun.framework.pay.service.PayRecordService;
 
 import org.springframework.beans.factory.annotation.Autowired;

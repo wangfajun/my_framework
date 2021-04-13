@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
 import com.wangfajun.framework.order.constant.OrderDeadQueueConstants;
 import com.wangfajun.framework.order.utils.RedisUtil;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.model.entity.TxEvent;
 import com.wangfajun.framework.order.service.OrderRecordService;
 import com.wangfajun.framework.order.service.TxEventService;
 import org.springframework.amqp.core.Message;

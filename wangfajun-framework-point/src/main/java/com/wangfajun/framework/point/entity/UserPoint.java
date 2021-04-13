@@ -26,7 +26,6 @@ public class UserPoint implements Serializable {
     /**
      * 主键
      */
-	@TableId
     private String id;
 
     /**

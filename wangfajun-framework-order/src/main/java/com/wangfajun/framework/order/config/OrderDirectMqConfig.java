@@ -1,6 +1,6 @@
 package com.wangfajun.framework.order.config;
 
-import com.wangfajun.framework.api.constant.RabbitMqCommonConstants;
+import com.wangfajun.framework.constant.RabbitMqCommonConstants;
 import com.wangfajun.framework.order.constant.OrderDeadQueueConstants;
 import com.wangfajun.framework.order.constant.OrderQueueConstants;
 import org.springframework.amqp.core.Binding;

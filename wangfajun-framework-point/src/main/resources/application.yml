@@ -4,16 +4,13 @@ spring:
     name: service-point
   profiles:
     active: test
-
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_tx_group
 # 端口配置
 server:
   port: 8083
-  servlet:
-    context-path: /service-point
-    encoding:
-      force: true
-      enabled: true
-      charset: UTF-8
 
 # mybatis-plus配置
 mybatis-plus:
@@ -39,8 +36,3 @@ logging:
   config: classpath:logback-spring.xml
   file:
     path: /opt/logs
-
-# 数据加密KEY
-aes:
-  key: laowang_framework
-

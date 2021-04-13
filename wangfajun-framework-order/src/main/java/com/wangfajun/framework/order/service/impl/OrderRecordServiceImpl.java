@@ -2,9 +2,9 @@ package com.wangfajun.framework.order.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangfajun.framework.api.model.req.EventContent;
+import com.wangfajun.framework.model.req.EventContent;
 import com.wangfajun.framework.order.entity.OrderRecord;
-import com.wangfajun.framework.api.enums.OrderStatusEnum;
+import com.wangfajun.framework.enums.OrderStatusEnum;
 import com.wangfajun.framework.order.mapper.OrderRecordMapper;
 import com.wangfajun.framework.order.service.OrderRecordService;
 import org.springframework.stereotype.Service;

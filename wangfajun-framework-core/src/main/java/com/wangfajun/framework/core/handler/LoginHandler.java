@@ -1,7 +1,7 @@
 package com.wangfajun.framework.core.handler;
 
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 
 /**
  * 登录处理器

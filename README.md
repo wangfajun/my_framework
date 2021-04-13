@@ -27,13 +27,17 @@
 ## wangfajun-framework-tm
 *  lcn、tcc分布式事务管理器(transaction manager)
 ##
+##
+## wangfajun-framework-seata-server
+*  seata服务端配置
+##
 ## 分布式事务说明
 * 采用tx-lcn框架
 >官网：https://www.codingapi.com/docs/txlcn-preface
 >
 >github：https://github.com/codingapi/tx-lcn
 ##
-* 项目中3种解决方案
+* 项目中4种解决方案
 > * 本地事件消息表+消息队列(交换机采用直接型、扇出型，死信队列补偿机制待完善)+定时任务
 >>OrderEventController
 >>
@@ -61,6 +65,13 @@
 >>
 >>配合tm服务、eueka服务
 >>redis
+>
+>* seata AT模式
+>>AccountSeataAtController
+>>
+>>PointSeataAtController
+>>
+>>配合wangfajun-framework-seata-server
 
 
 

@@ -1,17 +1,12 @@
 package com.wangfajun.framework.pay.task;
 
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.wangfajun.framework.api.model.entity.TxEvent;
-import com.wangfajun.framework.api.constant.RabbitMqCommonConstants;
-import com.wangfajun.framework.api.enums.TxEventStatusEnum;
 import com.wangfajun.framework.pay.service.TxEventService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**

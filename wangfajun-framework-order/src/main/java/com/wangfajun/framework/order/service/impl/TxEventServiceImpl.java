@@ -2,7 +2,7 @@ package com.wangfajun.framework.order.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wangfajun.framework.order.mapper.TxEventMapper;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.model.entity.TxEvent;
 import com.wangfajun.framework.order.service.TxEventService;
 
 import org.springframework.stereotype.Service;

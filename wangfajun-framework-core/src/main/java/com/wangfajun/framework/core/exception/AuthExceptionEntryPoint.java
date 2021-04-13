@@ -1,6 +1,6 @@
 package com.wangfajun.framework.core.exception;
 
-import com.wangfajun.framework.api.util.R;
+import com.wangfajun.framework.util.R;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.InsufficientAuthenticationException;

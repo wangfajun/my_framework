@@ -1,7 +1,7 @@
 package com.wangfajun.framework.core.utils;
 
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;

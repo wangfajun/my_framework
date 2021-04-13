@@ -1,17 +1,10 @@
 package com.wangfajun.framework.pay.config;
 
-import com.wangfajun.framework.api.constant.RabbitMqCommonConstants;
-import com.wangfajun.framework.pay.constant.PayDeadQueueConstants;
-import com.wangfajun.framework.pay.constant.PayQueueConstants;
-import org.springframework.amqp.core.BindingBuilder;
+import com.wangfajun.framework.constant.RabbitMqCommonConstants;
+
 import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.Binding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 支付服务 支付队列 直接交换机 配置

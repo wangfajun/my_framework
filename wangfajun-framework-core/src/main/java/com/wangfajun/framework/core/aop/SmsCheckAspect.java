@@ -1,6 +1,6 @@
 package com.wangfajun.framework.core.aop;
 
-import com.wangfajun.framework.api.constant.CommonConstants;
+import com.wangfajun.framework.constant.CommonConstants;
 import com.wangfajun.framework.core.annotation.SmsCheck;
 import com.wangfajun.framework.core.exception.FrameworkErrorException;
 import com.wangfajun.framework.core.utils.ContextHolderUtils;

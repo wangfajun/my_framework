@@ -2,16 +2,16 @@ package com.wangfajun.framework.core.handler.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.wangfajun.framework.api.aes.FrameWorkAESCipher;
-import com.wangfajun.framework.api.constant.CommonConstants;
+import com.wangfajun.framework.aes.FrameWorkAESCipher;
+import com.wangfajun.framework.constant.CommonConstants;
 import com.wangfajun.framework.core.convert.DemoConverter;
-import com.wangfajun.framework.api.enums.DemoStatusEnum;
+import com.wangfajun.framework.enums.DemoStatusEnum;
 import com.wangfajun.framework.core.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.core.exception.FrameworkErrorException;
 import com.wangfajun.framework.core.handler.LoginHandler;
 import com.wangfajun.framework.core.mapper.DemoMapper;
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.core.utils.LoginTokenControlUtil;
 import com.wangfajun.framework.core.utils.RedissonLockUtils;
 
@@ -41,7 +41,6 @@ public class DemoLoginHandler implements LoginHandler {
 	@Autowired
 	private LoginTokenControlUtil loginTokenControlUtil;
 
-	@Autowired
 	private FrameWorkAESCipher frameWorkAESCipher;
 
 	@Autowired

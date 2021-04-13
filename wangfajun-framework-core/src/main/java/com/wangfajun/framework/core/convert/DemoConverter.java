@@ -1,7 +1,7 @@
 package com.wangfajun.framework.core.convert;
 
-import com.wangfajun.framework.api.constant.CommonConstants;
-import com.wangfajun.framework.api.model.entity.Demo;
+import com.wangfajun.framework.constant.CommonConstants;
+import com.wangfajun.framework.model.entity.Demo;
 
 import org.springframework.stereotype.Component;
 import java.util.Date;

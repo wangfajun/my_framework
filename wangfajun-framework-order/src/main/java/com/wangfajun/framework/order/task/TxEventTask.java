@@ -1,16 +1,12 @@
 package com.wangfajun.framework.order.task;
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.wangfajun.framework.api.enums.TxEventStatusEnum;
-import com.wangfajun.framework.api.enums.TxEventTypeEnum;
-import com.wangfajun.framework.api.model.entity.TxEvent;
 import com.wangfajun.framework.order.service.TxEventService;
 import com.wangfajun.framework.order.service.OrderRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**

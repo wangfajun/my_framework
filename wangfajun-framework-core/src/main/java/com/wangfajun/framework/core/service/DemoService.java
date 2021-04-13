@@ -1,8 +1,8 @@
 package com.wangfajun.framework.core.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 
 /**
  * Demo服务层

@@ -20,8 +20,8 @@
 	<conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
 	<conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
 	<!-- 彩色日志格式 -->
-	<springProperty scope="context" name="common-pattern-color" source="logging.common-pattern-color" defaultValue="[${spring.application.name}:${server.port}:${PID}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%5p ]) %clr([ %t:%r ]){orange} %clr(%-40.40logger{39}){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
-	<springProperty scope="context" name="common-pattern" source="logging.common-pattern" defaultValue="[${spring.application.name}:${server.port}:${PID}] %d{yyyy-MM-dd HH:mm:ss.SSS}[%5p ] [ %t:%r ] [ %-40.40logger{39}.%M:%L] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+	<springProperty scope="context" name="common-pattern-color" source="logging.common-pattern-color" defaultValue="[${PID}] %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%5p ]) %clr([ %t:%r ]){orange} %clr(%-40.40logger{39}){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+	<springProperty scope="context" name="common-pattern" source="logging.common-pattern" defaultValue="[${PID}] %d{yyyy-MM-dd HH:mm:ss.SSS}[%5p ] [ %t:%r ] [ %-40.40logger{39}.%M:%L] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
 	<!-- 控制台实时输出，采用高亮语法，用于开发环境 -->
 	<appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">

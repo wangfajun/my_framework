@@ -1,9 +1,9 @@
 package com.wangfajun.framework.core.utils;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.wangfajun.framework.api.constant.CommonConstants;
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.JwtUserInfoRes;
+import com.wangfajun.framework.constant.CommonConstants;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.JwtUserInfoRes;
 import com.wangfajun.framework.core.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.core.exception.FrameworkErrorException;
 import com.wangfajun.framework.core.utils.encrypt.Sm4utils;

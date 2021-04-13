@@ -2,14 +2,14 @@ package com.wangfajun.framework.pay.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangfajun.framework.api.model.req.EventContent;
+import com.wangfajun.framework.model.req.EventContent;
 import com.wangfajun.framework.pay.mapper.PayRecordMapper;
 import com.wangfajun.framework.pay.service.PayRecordService;
-import com.wangfajun.framework.api.enums.TxEventStatusEnum;
-import com.wangfajun.framework.api.enums.TxEventTypeEnum;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.enums.TxEventStatusEnum;
+import com.wangfajun.framework.enums.TxEventTypeEnum;
+import com.wangfajun.framework.model.entity.TxEvent;
 import com.wangfajun.framework.pay.service.TxEventService;
-import com.wangfajun.framework.api.enums.PayStatusEnum;
+import com.wangfajun.framework.enums.PayStatusEnum;
 import com.wangfajun.framework.pay.entity.PayRecord;
 
 import org.springframework.stereotype.Service;

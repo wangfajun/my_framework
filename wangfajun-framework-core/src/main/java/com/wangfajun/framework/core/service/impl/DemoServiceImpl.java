@@ -1,13 +1,13 @@
 package com.wangfajun.framework.core.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wangfajun.framework.api.constant.CommonConstants;
+import com.wangfajun.framework.constant.CommonConstants;
 import com.wangfajun.framework.core.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.core.exception.FrameworkErrorException;
 import com.wangfajun.framework.core.handler.LoginHandler;
 import com.wangfajun.framework.core.mapper.DemoMapper;
-import com.wangfajun.framework.api.model.entity.Demo;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.core.service.DemoService;
 import com.wangfajun.framework.core.utils.LoginTokenControlUtil;
 

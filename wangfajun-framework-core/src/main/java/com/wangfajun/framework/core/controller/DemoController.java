@@ -2,7 +2,7 @@ package com.wangfajun.framework.core.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
 import com.wangfajun.framework.core.annotation.TokenCheck;
-import com.wangfajun.framework.api.model.res.DemoLoginRes;
+import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.core.service.DemoService;
 import com.wangfajun.framework.core.annotation.Inner;
 import com.wangfajun.framework.core.annotation.SmsCheck;

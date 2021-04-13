@@ -2,11 +2,11 @@ package com.wangfajun.framework.order.consumer.direct;
 
 import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.model.entity.TxEvent;
 import com.wangfajun.framework.order.constant.OrderQueueConstants;
 import com.wangfajun.framework.order.service.OrderRecordService;
 import com.wangfajun.framework.order.utils.RedisUtil;
-import com.wangfajun.framework.api.enums.TxEventStatusEnum;
+import com.wangfajun.framework.enums.TxEventStatusEnum;
 import com.wangfajun.framework.order.service.TxEventService;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;

@@ -15,8 +15,8 @@ import org.springframework.boot.SpringApplication;
  */
 @EnableSwagger2
 @SpringBootApplication
-@MapperScan("com.wangfajun.framework.mapper")
-@EnableFeignClients(basePackages = {"com.wangfajun.framework.api.client"})
+@MapperScan("com.wangfajun.framework.core.mapper")
+@EnableFeignClients(basePackages = {"com.wangfajun.framework.client"})
 public class CoreApplication {
 
 	public static void main(String[] args) {

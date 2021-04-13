@@ -1,7 +1,7 @@
 package com.wangfajun.framework.order.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wangfajun.framework.api.model.entity.TxEvent;
+import com.wangfajun.framework.model.entity.TxEvent;
 
 /**
  * 订单事件服务层
