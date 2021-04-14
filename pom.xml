@@ -67,6 +67,7 @@
 		<txlcn-txmsg-netty.version>5.0.2.RELEASE</txlcn-txmsg-netty.version>
 		<txlcn-tm.version>5.0.2.RELEASE</txlcn-tm.version>
 		<seata.version>2.2.0.RELEASE</seata.version>
+		<rocketmq.version>2.0.2</rocketmq.version>
 	</properties>
 
 	<!--maven依赖管理-->
@@ -265,6 +266,13 @@
 				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-seata</artifactId>
 				<version>${seata.version}</version>
+			</dependency>
+
+			<!--rocket mq-->
+			<dependency>
+				<groupId>org.apache.rocketmq</groupId>
+				<artifactId>rocketmq-spring-boot-starter</artifactId>
+				<version>${rocketmq.version}</version>
 			</dependency>
 
 		</dependencies>
