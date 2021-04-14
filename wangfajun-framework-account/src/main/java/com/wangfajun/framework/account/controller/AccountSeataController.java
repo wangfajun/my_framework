@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.Date;
 import java.util.Random;
-
 import io.seata.spring.annotation.GlobalTransactional;
 
 /**
@@ -22,7 +20,7 @@ import io.seata.spring.annotation.GlobalTransactional;
  */
 @RestController
 @RequestMapping("/seata")
-public class AccountSeataAtController {
+public class AccountSeataController {
 
 	@Autowired
 	UserAccountServiceAt userAccountService;

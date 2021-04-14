@@ -32,16 +32,19 @@
 *  seata服务端配置
 ##
 ## 分布式事务说明
-* 采用tx-lcn框架
+* tx-lcn框架
 >官网：https://www.codingapi.com/docs/txlcn-preface
 >
 >github：https://github.com/codingapi/tx-lcn
+>
+* seata框架
+>官网：http://seata.io/zh-cn/docs/overview/what-is-seata.html
+>
+>github：https://github.com/seata/seata
 ##
-* 项目中包含5种解决方案
+* 项目中包含4种解决方案
 > * 本地事件消息表+消息队列(交换机采用直接型、扇出型，死信队列补偿机制待完善)+定时任务
->>OrderEventController
->>
->>PayEventController
+>>OrderEventController、PayEventController
 >>
 >>com.wangfajun.framework.order.task.TxEventTask
 >>
@@ -49,27 +52,17 @@
 >>
 >>order、point服务的consumer包
 >
->* LCN
->>PayLcnController
+>* TX-LCN、TX-TCC
+>>PayLcnController、OrderLcnController
 >>
->>OrderLcnController
+>>PayTccController、OrderTccController
 >>
->>配合tm服务
->>
->>redis
+>>配合tm服务、redis
 >
->* TCC
->>PayLcnController
+>* seata AT模式、TCC模式
+>>AccountSeataController
 >>
->>OrderLcnController
->>
->>配合tm服务、eueka服务
->>redis
->
->* seata AT模式
->>AccountSeataAtController
->>
->>PointSeataAtController
+>>PointSeataController
 >>
 >>配合wangfajun-framework-seata-server
 >
