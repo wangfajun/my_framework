@@ -37,7 +37,7 @@
 >
 >github：https://github.com/codingapi/tx-lcn
 ##
-* 项目中4种解决方案
+* 项目中包含5种解决方案
 > * 本地事件消息表+消息队列(交换机采用直接型、扇出型，死信队列补偿机制待完善)+定时任务
 >>OrderEventController
 >>
@@ -72,6 +72,15 @@
 >>PointSeataAtController
 >>
 >>配合wangfajun-framework-seata-server
+>
+>* RocketMq事务消息
+>>账户服务(account)
+>>>AccountRocketMqController
+>>>
+>>>com.wangfajun.framework.account.config包
+>>
+>>积分服务(point)
+>>>com.wangfajun.framework.point.consumer包
 
 
 
