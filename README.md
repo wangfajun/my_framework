@@ -11,42 +11,54 @@
 #
 #项目结构：
 ## file目录
-*  各服务的脚本
+*  各服务初始化脚本（mysql）
 ##
 ## wangfajun-framework-pai:
 *  公共组件
 *  公用的类放在此项目下
 ##
 ## wangfajun-framework-core
-*  业务demo,新服务可参照此服务搭建
+*  业务demo,咱无使用场景，新服务可参照此服务搭建
 ##
 ## wangfajun-framework-eureka
 *  注册中心
-*  用于LCN、TCC分布式事务解决方案，将pay、order注册到注册中心，通过RestTemplate服务名调用
+*  各服务注册到注册中心，可通过服务名调用
 ##
 ## wangfajun-framework-order
 *  订单服务
 *  模拟下订单，保存订单流水
+*  结合支付服务、tm服务做分布式事务（本地消息表、TX-LCN、TX-TCC）
 ##
 ## wangfajun-framework-pay
 *  支付服务
 *  模拟支付、支付回调，保存支付流水
+*  结合订单服务、tm服务,做本地消息表分布式事务、做第三方TX分布式事务（TX-LCN、TX-TCC）
 ##
 ## wangfajun-framework-point
 *  积分服务
 *  模拟给用户加积分
+*  结合账户服务、seata-server做第三方seata的分布式事务
+##
+## wangfajun-framework-account
+*  账户服务
+*  模拟用户账户信息
+*  结合积分服务、seata-server做第三方seata的分布式事务
 ##
 ## wangfajun-framework-tm
 *  TX-LCN、TX-TCC分布式事务管理器(transaction manager)
 ##
 ## wangfajun-framework-seata-server
 *  seata服务端配置
+*  conf目录配置好eureka及数据库配置
+*  bin目录启动配置
 ##
 ## wangfajun-framework-stock
 *  库存服务
+*  结合物流服务、做RocketMQ的分布式事务
 ##
 ## wangfajun-framework-logistics
 *  物流服务
+*  结库存流服务、做RocketMQ的分布式事务
 ##
 # 第三方分布式事务框架使用说明
 * tx-lcn框架
