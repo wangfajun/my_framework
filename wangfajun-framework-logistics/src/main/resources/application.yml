@@ -1,14 +1,13 @@
 # 项目信息配置
 spring:
   application:
-    name: service-pay
+    name: service-logistics
   profiles:
     active: test
 
 # 端口配置
 server:
-  port: 8082
-  servlet:
+  port: 8085
 
 # mybatis-plus配置
 mybatis-plus:
@@ -26,7 +25,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
   mapper-locations: classpath*:mybatis/*Mapper.xml
-  type-aliases-package: com.wangfajun.framework.pay.entity
+  type-aliases-package: com.wangfajun.framework.logistics.entity
 
 # 默认日志配置
 logging:
@@ -34,8 +33,4 @@ logging:
   config: classpath:logback-spring.xml
   file:
     path: /opt/logs
-
-# 数据加密KEY
-aes:
-  key: laowang_framework
 

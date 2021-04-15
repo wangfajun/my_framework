@@ -27,9 +27,14 @@
 ## wangfajun-framework-tm
 *  lcn、tcc分布式事务管理器(transaction manager)
 ##
-##
 ## wangfajun-framework-seata-server
 *  seata服务端配置
+##
+## wangfajun-framework-stock
+*  库存服务
+##
+## wangfajun-framework-logistics
+*  物流服务
 ##
 ## 分布式事务说明
 * tx-lcn框架
@@ -67,13 +72,13 @@
 >>配合wangfajun-framework-seata-server
 >
 >* RocketMq事务消息
->>账户服务(account)
->>>AccountRocketMqController
+>>库存服务(stock)
+>>>StockController
 >>>
->>>com.wangfajun.framework.account.config包
+>>>com.wangfajun.framework.stock.config包
 >>
->>积分服务(point)
->>>com.wangfajun.framework.point.consumer包
+>>物流服务(logistics)
+>>>com.wangfajun.framework.logistics.consumer包
 
 
 

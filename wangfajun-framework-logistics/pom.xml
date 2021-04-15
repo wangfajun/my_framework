@@ -9,10 +9,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>wangfajun-framework-eureka</artifactId>
+	<artifactId>wangfajun-framework-logistics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>wangfajun-framework-eureka</name>
-	<description>wangfajun-framework-eureka</description>
+	<packaging>jar</packaging>
+	<description>service-logistics</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -24,15 +24,42 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--eureka-server-->
+		<!-- mybatis -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+		<!--lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- mysql:阿里巴巴数据库连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+
+		<!-- mysql驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- eureka-client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
+		<!--rocket mq-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.apache.rocketmq</groupId>
+			<artifactId>rocketmq-spring-boot-starter</artifactId>
 		</dependency>
+
 	</dependencies>
 
 	<build>

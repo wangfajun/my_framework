@@ -28,7 +28,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
   mapper-locations: classpath*:mybatis/*Mapper.xml
-  type-aliases-package: com.wangfajun.framework.point.model.entity
+  type-aliases-package: com.wangfajun.framework.point.entity
 
 # 默认日志配置
 logging:

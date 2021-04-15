@@ -8,7 +8,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:${server.port}/eureka/
 
 # 日志配置
 logging:
