@@ -25,7 +25,7 @@
 *  模拟给用户加积分
 ##
 ## wangfajun-framework-tm
-*  lcn、tcc分布式事务管理器(transaction manager)
+*  TX-LCN、TX-TCC分布式事务管理器(transaction manager)
 ##
 ## wangfajun-framework-seata-server
 *  seata服务端配置
@@ -62,14 +62,14 @@
 >>
 >>PayTccController、OrderTccController
 >>
->>配合tm服务、redis
+>>启动pay、order之前，先启动tm服务
 >
 >* seata AT模式、TCC模式
 >>AccountSeataController
 >>
 >>PointSeataController
 >>
->>配合wangfajun-framework-seata-server
+>>启动account、point服务前，先启动wangfajun-framework-seata-server中的bin下的文件
 >
 >* RocketMq事务消息
 >>库存服务(stock)
