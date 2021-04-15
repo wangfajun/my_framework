@@ -1,25 +1,13 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 本地
-Source Server Version : 50730
-Source Host           : localhost:3306
-Source Database       : service-logistics
-
-Target Server Type    : MYSQL
-Target Server Version : 50730
-File Encoding         : 65001
-
-Date: 2021-04-15 14:19:37
-*/
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS service_logistics DEFAULT charset utf8 COLLATE utf8_general_ci;
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for logistics_record
 -- ----------------------------
-DROP TABLE IF EXISTS `logistics_record`;
-CREATE TABLE `logistics_record` (
+DROP TABLE IF EXISTS `service_logistics`.`logistics_record`;
+CREATE TABLE `service_logistics`.`logistics_record` (
   `id` varchar(255) NOT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `order_id` varchar(255) DEFAULT NULL,

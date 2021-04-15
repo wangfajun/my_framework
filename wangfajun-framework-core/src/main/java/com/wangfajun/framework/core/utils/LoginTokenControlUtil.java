@@ -1,7 +1,7 @@
 package com.wangfajun.framework.core.utils;
 
 import com.wangfajun.framework.constant.CommonConstants;
-import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.core.entity.Demo;
 import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.model.res.JwtUserInfoRes;
 

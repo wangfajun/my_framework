@@ -1,7 +1,5 @@
-package com.wangfajun.framework.model.entity;
+package com.wangfajun.framework.core.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;

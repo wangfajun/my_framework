@@ -1,25 +1,13 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 本地
-Source Server Version : 50730
-Source Host           : localhost:3306
-Source Database       : tx-manager
-
-Target Server Type    : MYSQL
-Target Server Version : 50730
-File Encoding         : 65001
-
-Date: 2021-04-15 14:21:14
-*/
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS tx_manager DEFAULT charset utf8 COLLATE utf8_general_ci;
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for t_logger
 -- ----------------------------
-DROP TABLE IF EXISTS `t_logger`;
-CREATE TABLE `t_logger` (
+DROP TABLE IF EXISTS `tx_manager`.`t_logger`;
+CREATE TABLE `tx_manager`.`t_logger` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `group_id` varchar(64) NOT NULL,
   `unit_id` varchar(32) NOT NULL,
@@ -37,8 +25,8 @@ CREATE TABLE `t_logger` (
 -- ----------------------------
 -- Table structure for t_tx_exception
 -- ----------------------------
-DROP TABLE IF EXISTS `t_tx_exception`;
-CREATE TABLE `t_tx_exception` (
+DROP TABLE IF EXISTS `tx_manager`.`t_tx_exception`;
+CREATE TABLE `tx_manager`.`t_tx_exception` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `group_id` varchar(32) DEFAULT NULL,
   `unit_id` varchar(32) DEFAULT NULL,

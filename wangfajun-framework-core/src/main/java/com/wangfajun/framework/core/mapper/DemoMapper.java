@@ -1,7 +1,7 @@
 package com.wangfajun.framework.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.core.entity.Demo;
 
 /**
  * demo mapper层

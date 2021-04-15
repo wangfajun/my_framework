@@ -1,6 +1,6 @@
 package com.wangfajun.framework.core.utils;
 
-import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.core.entity.Demo;
 import com.wangfajun.framework.model.res.DemoLoginRes;
 
 import org.springframework.beans.BeanUtils;

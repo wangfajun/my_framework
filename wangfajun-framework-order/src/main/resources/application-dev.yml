@@ -38,7 +38,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/service-order?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/service_order?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
     dbcp2:
@@ -65,7 +65,7 @@ otherService:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:7900/eureka/
+      defaultZone: http://localhost:7900/eureka/
 
 # LCN TM事务消息端口配置
 tx-lcn:

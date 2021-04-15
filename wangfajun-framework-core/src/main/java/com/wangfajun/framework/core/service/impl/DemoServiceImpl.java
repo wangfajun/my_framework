@@ -6,7 +6,7 @@ import com.wangfajun.framework.core.exception.FrameWorkErrorCode;
 import com.wangfajun.framework.core.exception.FrameworkErrorException;
 import com.wangfajun.framework.core.handler.LoginHandler;
 import com.wangfajun.framework.core.mapper.DemoMapper;
-import com.wangfajun.framework.model.entity.Demo;
+import com.wangfajun.framework.core.entity.Demo;
 import com.wangfajun.framework.model.res.DemoLoginRes;
 import com.wangfajun.framework.core.service.DemoService;
 import com.wangfajun.framework.core.utils.LoginTokenControlUtil;

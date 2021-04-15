@@ -1,5 +1,20 @@
 #=======================开发环境配置================================
 spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/service_core?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-total: 5
+      max-wait-millis: 200
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
   redis:
     host: 127.0.0.1
     port: 6379
@@ -13,48 +28,23 @@ spring:
         max-idle: 8
         min-idle: 0
       shutdown-timeout: 100
-  cache:
-    redis:
-      ## Entry expiration in milliseconds. By default the entries never expire.
-      time-to-live: 1d
-      #写入redis时是否使用键前缀。
-      use-key-prefix: true
-  datasource:
-    #postgresql
-    url: jdbc:postgresql://192.168.40.125:5432/zhundian_salary?currentSchema=zhundian_salary
-    username: zhundian
-    password: zhundian
-    driver-class-name: org.postgresql.Driver
-    ###################以下为druid增加的配置###########################
-    type: com.alibaba.druid.pool.DruidDataSource
-    # 下面为连接池的补充设置，应用到上面所有数据源中
-    # 初始化大小，最小，最大
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    # 配置获取连接等待超时的时间
-    maxWait: 60000
-    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-    timeBetweenEvictionRunsMillis: 60000
-    # 配置一个连接在池中最小生存的时间，单位是毫秒
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    # 打开PSCache，并且指定每个连接上PSCache的大小
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
-    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-    # 合并多个DruidDataSource的监控数据
-    useGlobalDataSourceStat: true
-    ###############以上为配置druid添加的配置########################################
-
+    cache:
+      redis:
+        ## Entry expiration in milliseconds. By default the entries never expire.
+        time-to-live: 1d
+        #写入redis时是否使用键前缀。
+        use-key-prefix: true
 # 日志配置
 logging:
   level:
     root: DEBUG
+
+# eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
+
 
 # 远程服务feign调用demo
 otherService:

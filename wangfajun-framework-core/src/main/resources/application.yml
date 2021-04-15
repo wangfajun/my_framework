@@ -1,19 +1,13 @@
 # 项目信息配置
 spring:
   application:
-    name: framework
+    name: service-core
   profiles:
     active: test
 
 # 端口配置
 server:
   port: 8080
-  servlet:
-    context-path: /framework
-    encoding:
-      force: true
-      enabled: true
-      charset: UTF-8
 
 # mybatis-plus配置
 mybatis-plus:
@@ -31,16 +25,17 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
   mapper-locations: classpath*:mybatis/*Mapper.xml
-  type-aliases-package: com.wangfajun.framework.model.entity
+  type-aliases-package: com.wangfajun.framework.core.entity
 
 # 默认日志配置
 logging:
   #日志文件路径配置
   config: classpath:logback-spring.xml
   file:
-    path: /opt/logs/framework
+    path: /opt/logs
 
-# 数据加密KEY
-aes:
-  key: laowang_framework
+# 远程服务feign调用demo
+otherService:
+  service:
+    url: http://localhost:8080
 
