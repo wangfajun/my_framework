@@ -1,3 +1,15 @@
+# 常见的分布式事务解决方案：
+* 2PC（Two-Phase Commit）
+* 3PC（Three-Phase Commit）
+* 本地消息表（消息表+消息队列+定时任务）
+* LCN（Lock Confirm Notify）
+* TCC（Try Confirm Cancel）
+* 事务消息（基于RocketMQ）
+* 最大努力通知型（微信、支付宝开放平台）
+* 可靠消息服务（自研消息服务）
+#### 本项目中包含4种解决方案，具体往下翻：
+#
+#项目结构：
 ## file目录
 *  各服务的脚本
 ##
@@ -36,7 +48,7 @@
 ## wangfajun-framework-logistics
 *  物流服务
 ##
-## 分布式事务说明
+# 第三方分布式事务框架使用说明
 * tx-lcn框架
 >官网：https://www.codingapi.com/docs/txlcn-preface
 >
@@ -48,7 +60,7 @@
 >github：https://github.com/seata/seata
 ##
 * 项目中包含4种解决方案
-> * 本地事件消息表+消息队列(交换机采用直接型、扇出型，死信队列补偿机制待完善)+定时任务
+> * 本地事件消息表+消息队列(RabbitMq交换机采用直接型、扇出型，死信队列补偿机制待完善)+定时任务
 >>OrderEventController、PayEventController
 >>
 >>com.wangfajun.framework.order.task.TxEventTask
