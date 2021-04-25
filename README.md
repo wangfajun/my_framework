@@ -60,6 +60,10 @@
 *  物流服务
 *  结库存流服务、做RocketMQ的分布式事务
 ##
+## wangfajun-framework-distributed-lock
+*  分布式锁demo
+*  多种分布式锁实现方案，包含：jvm锁、数据库(mysql)锁、redis的setnx方式、redisson、redisson红锁
+##
 # 第三方分布式事务框架使用说明
 * tx-lcn框架
 >官网：https://www.codingapi.com/docs/txlcn-preface
