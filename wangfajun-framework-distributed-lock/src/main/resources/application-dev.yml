@@ -1,0 +1,41 @@
+#=======================开发环境配置================================
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: redis@123
+    timeout: 5000 #连接超时 毫秒
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 10000
+        max-idle: 8
+        min-idle: 0
+      shutdown-timeout: 100
+  cache:
+    redis:
+      ## Entry expiration in milliseconds. By default the entries never expire.
+      time-to-live: 1d
+      #写入redis时是否使用键前缀。
+      use-key-prefix: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/service_distributed_lock?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-total: 5
+      max-wait-millis: 200
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+# 日志配置
+logging:
+  level:
+    root: DEBUG

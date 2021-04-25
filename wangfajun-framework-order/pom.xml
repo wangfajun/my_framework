@@ -165,12 +165,6 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<!--wangfajun-framework-api-->
-		<dependency>
-			<groupId>com.wangfajun</groupId>
-			<artifactId>wangfajun-framework-api</artifactId>
-		</dependency>
-
 		<!-- ribbon -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

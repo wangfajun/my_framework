@@ -34,6 +34,8 @@
 		<module>wangfajun-framework-stock</module>
 		<!-- 物流服务 -->
 		<module>wangfajun-framework-logistics</module>
+		<!-- 分布式锁demo-->
+		<module>wangfajun-framework-distributed-lock</module>
 	</modules>
 
 	<properties>
